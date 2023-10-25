@@ -1,0 +1,59 @@
+// Shape
+abstract class Shape {
+    private String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public abstract double calculateArea();
+}
+
+// Circle
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Rectangle
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+
+    public double calculateArea() {
+        return width * height;
+    }
+}
+
+class Base {
+    public static void main(String[] args) {
+        Circle circle = new Circle("Red", 5.0);
+        Rectangle rectangle = new Rectangle("Blue", 4.0, 6.0);
+
+        System.out.println("Color: " + circle.getColor());
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("-----------------------");
+
+        System.out.println("Color: " + rectangle.getColor());
+        System.out.println("Area: " + rectangle.calculateArea());
+        System.out.println("-----------------------");
+    }
+}
